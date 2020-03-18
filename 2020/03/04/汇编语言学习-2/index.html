@@ -15,8 +15,14 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-1.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-2.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-3.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-4.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-6.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-5.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-7.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-8.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-9.png">
 <meta property="article:published_time" content="2020-03-04T06:19:50.000Z">
-<meta property="article:modified_time" content="2020-03-04T11:53:24.952Z">
+<meta property="article:modified_time" content="2020-03-06T07:21:22.197Z">
 <meta property="article:author" content="Raechellia">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-1.png">
@@ -183,7 +189,55 @@
 </tr>
 </tbody></table>
 <p>注意：<br>这里的丢失，指的是进制位不能在8位寄存器中保存，但是CPU不是真的丢弃这个进制位。</p>
-<h1 id="2-4-物理地址"><a href="#2-4-物理地址" class="headerlink" title="2.4 物理地址"></a>2.4 物理地址</h1><h1 id="2-5-16位结构的CPU"><a href="#2-5-16位结构的CPU" class="headerlink" title="2.5 16位结构的CPU"></a>2.5 16位结构的CPU</h1><h1 id="2-6-8086CPU给出物理地址的方法"><a href="#2-6-8086CPU给出物理地址的方法" class="headerlink" title="2.6 8086CPU给出物理地址的方法"></a>2.6 8086CPU给出物理地址的方法</h1><h1 id="2-7-“段地址X16-偏移地址-物理地址”的本质含义"><a href="#2-7-“段地址X16-偏移地址-物理地址”的本质含义" class="headerlink" title="2.7 “段地址X16+偏移地址=物理地址”的本质含义"></a>2.7 “段地址X16+偏移地址=物理地址”的本质含义</h1><h1 id="2-8-段的概念"><a href="#2-8-段的概念" class="headerlink" title="2.8 段的概念"></a>2.8 段的概念</h1><h1 id="2-9-段寄存器"><a href="#2-9-段寄存器" class="headerlink" title="2.9 段寄存器"></a>2.9 段寄存器</h1><h1 id="2-10-CS和IP"><a href="#2-10-CS和IP" class="headerlink" title="2.10 CS和IP"></a>2.10 CS和IP</h1><h1 id="2-12-代码段"><a href="#2-12-代码段" class="headerlink" title="2.12 代码段"></a>2.12 代码段</h1>
+<h1 id="2-4-物理地址"><a href="#2-4-物理地址" class="headerlink" title="2.4 物理地址"></a>2.4 物理地址</h1><p>CPU访问内存单元时要给出内存单元地址。所有的内存单元构成的存储空间是一个一维的线性空间。</p>
+<h1 id="2-5-16位结构的CPU"><a href="#2-5-16位结构的CPU" class="headerlink" title="2.5 16位结构的CPU"></a>2.5 16位结构的CPU</h1><p>16位CPU有以下特征：</p>
+<ol>
+<li>运算器一次最多可以处理16位的数据</li>
+<li>寄存器的最大宽度为16位</li>
+<li>寄存器和运算器之间的通路是16位的</li>
+</ol>
+<p>所以说懂得16位CPU你就可以懂得64位CPU</p>
+<h1 id="2-6-8086CPU给出物理地址的方法"><a href="#2-6-8086CPU给出物理地址的方法" class="headerlink" title="2.6 8086CPU给出物理地址的方法"></a>2.6 8086CPU给出物理地址的方法</h1><p>8086有20位地址总线，可传送20位地址，寻址能力位1M<br>8086内部为16位结构，它只能传送16位的地址，表现出的寻址能力却只有64K</p>
+<p>8086CPU采用一种在内部用两个16位地址合成的方法来形成一个20位的物理地址<br><img src="/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-4.png" alt="8086CPU相关部件的逻辑结构"></p>
+<p>注意：<br>当8086CPU读取内存时，发生这么一些事情：</p>
+<ol>
+<li>CPU中的相关部件提供两个16位的地址，一个称为段地址，另一个称为偏移地址</li>
+<li>段地址和偏移地址通过内部总线送入一个称为地址加法器的部件</li>
+<li>地址加法器将两个16位地址合并成一个20位的地址</li>
+<li>。。。</li>
+</ol>
+<h1 id="2-7-“段地址X16-偏移地址-物理地址”的本质含义"><a href="#2-7-“段地址X16-偏移地址-物理地址”的本质含义" class="headerlink" title="2.7 “段地址X16+偏移地址=物理地址”的本质含义"></a>2.7 “段地址X16+偏移地址=物理地址”的本质含义</h1><p>概念“段地址X16+偏移地址=物理地址”<br>段地址X16可以看成二进制数向左移动4位<br><img src="/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-6.png" alt></p>
+<p>地址加法器工作原理<br><img src="/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-5.png" alt></p>
+<h1 id="2-8-段的概念"><a href="#2-8-段的概念" class="headerlink" title="2.8 段的概念"></a>2.8 段的概念</h1><p>内存没有分段，段的划分来自于CPU，由于8086CPU用”段地址X16+偏移地址=物理地址”的方式给出内存单元的物理地址，使得我们可以用分段的方式来管理内存。</p>
+<p>CPU可以用不同的段地址和偏移地址形成同一个物理地址。<br><img src="/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-7.png" alt></p>
+<p>描述“数据在21F60H内存单元中”<br>对于8086PC机的两种描述：</p>
+<ol>
+<li>数据存在内存单元2000:1F60单元中</li>
+<li>数据存在内存的2000段中的1F60H单元中。</li>
+</ol>
+<h1 id="2-9-段寄存器"><a href="#2-9-段寄存器" class="headerlink" title="2.9 段寄存器"></a>2.9 段寄存器</h1><p>段寄存器就是提供段地址的。<br>8086CPU有4个段寄存器：CS、DS、SS、ES<br>当8086CPU要访问内存时，由这四个段寄存器提供内存单元的段地址</p>
+<h1 id="2-10-CS和IP"><a href="#2-10-CS和IP" class="headerlink" title="2.10 CS和IP"></a>2.10 CS和IP</h1><p>CS和IP是8086CPU中最关键的寄存器，他们指示了CPU当前要读取指令的地址。<br>CS为代码段寄存器。 IP为指令指针寄存器。<br><img src="/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-8.png" alt><br>工作流程：</p>
+<ol>
+<li>从CS:IP指向内存单元读取指令，读取的指令进入指令缓冲器</li>
+<li>IP = IP + 所读取指令的长度，从而指向下一条指令</li>
+<li>执行指令。转到1，反复执行</li>
+</ol>
+<p>8086PC工作过程简要描述<br>在8086CPU加电启动或复位后(即CPU刚开始工作时)CS和IP被设置为CS=FFFFH，IP=0000H<br>即在8086PC机刚启动时，CPU从内存FFFF0H单元中读取指令执行<br>FFFF0H单元中的指令是8086PC机开机后执行的第一条指令</p>
+<h1 id="2-11-修改CS、IP的指令"><a href="#2-11-修改CS、IP的指令" class="headerlink" title="2.11 修改CS、IP的指令"></a>2.11 修改CS、IP的指令</h1><p>在CPU中，程序员能够用指令读写的部件只有寄存器，程序员可以通过改变寄存器中的内容实现对CPU的控制。<br>CPU从何处执行指令是由CS、IP中的内容决定的，程序员可以通过改变CS、IP中的内容来控制CPU执行目标指令</p>
+<p>转移指令：<br>同时修改CS、IP的内容：<br>jmp 段地址:偏移地址<br>jmp 2AE3:3    -&gt;    2AE33<br>jmp 3:0B16    -&gt;    00B46</p>
+<p>仅仅修改IP的内容<br>jmp 某一合法寄存器<br>jmp ax    类似与 mov IP, ax<br>jmp bx</p>
+<p>内存中存放的机器码和对应汇编指令情况<br>CS=2000H IP=0000H<br><img src="/2020/03/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/huibian-2-9.png" alt></p>
+<ol>
+<li>mov ax, 6622H</li>
+<li>jup 1000:3</li>
+<li>mov ax, 0000</li>
+<li>mov bx, ax</li>
+<li>jmp bx</li>
+<li>mov ax, 0123</li>
+<li>转到3</li>
+</ol>
+<h1 id="2-12-代码段"><a href="#2-12-代码段" class="headerlink" title="2.12 代码段"></a>2.12 代码段</h1><p>对于8086PC机，在编程时，可以根据需要，将一组内存单元定义为一个段。<br>可以将长度为N的一组代码，存在一组地址连续、起始地址为16的倍数的内存单元中，这段内存是用来存放代码的，从而定义了一个代码段。</p>
+
   </article>
   <footer class="f-cf">
     
